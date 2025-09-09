@@ -1,6 +1,10 @@
 import { expect, describe, test } from "@jest/globals";
 import { fizzBuzz } from "../src/fizzBuzz";
 
+const {
+  getNumber,
+} = require('../src/js/dom');
+
 describe('FizzBuzz test for multiples of 3 and 5', () => {
        
         test('returns Fizz when multiple of 3', () => {
