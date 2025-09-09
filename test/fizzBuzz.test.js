@@ -1,10 +1,6 @@
 import { expect, describe, test } from "@jest/globals";
 import { fizzBuzz } from "../src/fizzBuzz";
 
-const {
-  getNumber,
-} = require('../src/js/dom');
-
 describe('FizzBuzz test for multiples of 3 and 5', () => {
        
         test('returns Fizz when multiple of 3', () => {
@@ -45,10 +41,23 @@ describe('FizzBuzz test for multiples of 3 and 5', () => {
              */
 
             // Arrange
+            let valor_entrada = 10;
+            let respuesta_esperada = {
+                status: "ok", // Código indicando éxito
+                message: "El número es divisible por 5", // Mensaje de validación
+                data: {
+                    input: 10,  // Número evaluado
+                    output: "Buzz" // Resultado esperado
+                }}
+
 
             // Act
+            let resultado = fizzBuzz(valor_entrada);
     
             // Assert
+            expect(typeof resultado.data.input).toBe("number"); // valida que input sea un número
+            expect(resultado).toEqual(respuesta_esperada); // valida estructura de respuesta
+            expect(resultado.data.output).toBe("Buzz"); // valida que el valor output corresponda al expect
     
         })
 
@@ -60,6 +69,25 @@ describe('FizzBuzz test for multiples of 3 and 5', () => {
              * When el número es procesado
              * Then se muestra "FizzBuzz"
              */
+
+            // Arrange
+            let valor_entrada = 15;
+            let respuesta_esperada = {
+                status: "ok", // Código indicando éxito
+                message: "El número es divisible por 3 y 5", // Mensaje de validación
+                data: {
+                    input: 15,  // Número evaluado
+                    output: "FizzBuzz" // Resultado esperado
+                }}
+
+
+            // Act
+            let resultado = fizzBuzz(valor_entrada);
+    
+            // Assert
+            expect(typeof resultado.data.input).toBe("number"); // valida que input sea un número
+            expect(resultado).toEqual(respuesta_esperada); // valida estructura de respuesta
+            expect(resultado.data.output).toBe("FizzBuzz"); // valida que el valor output corresponda al expect
         })
 
         test('returns number when is not multiple of 3 and 5', () => {
@@ -70,6 +98,25 @@ describe('FizzBuzz test for multiples of 3 and 5', () => {
              * When el número es procesado
              * Then se muestra el número ingresado
              */
+
+            // Arrange
+            let valor_entrada = 8;
+            let respuesta_esperada = {
+                status: "ok", // Código indicando éxito
+                message: "El número no es divisible por 3 ni 5", // Mensaje de validación
+                data: {
+                    input: 8,  // Número evaluado
+                    output: valor_entrada // Resultado esperado
+                }}
+
+
+            // Act
+            let resultado = fizzBuzz(valor_entrada);
+    
+            // Assert
+            expect(typeof resultado.data.input).toBe("number"); // valida que input sea un número
+            expect(resultado).toEqual(respuesta_esperada); // valida estructura de respuesta
+            expect(resultado.data.output).toBe(valor_entrada); // valida que el valor output corresponda al expect
         })
     }
 )

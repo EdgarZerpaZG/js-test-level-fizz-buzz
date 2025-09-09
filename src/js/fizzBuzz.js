@@ -12,10 +12,7 @@
  * */ 
 
 function getNumber(){
-    if(value % 3 === 0){
-        document.getElementById("result").innerHTML = "El número ingresado es divisible de 3"
-    }
-    return value;
+    
 }
 
 if (typeof module !== 'undefined') {
