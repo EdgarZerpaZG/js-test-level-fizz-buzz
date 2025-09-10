@@ -8,7 +8,7 @@ function receivedNumber() {
     try {
         const n = document.getElementById('value').value.trim();
         if (n.length === 0) {
-            throw "El valor ingresado no debe estar vacio";
+            throw "La casilla no debe estar vacia";
         }
         if (isNaN(n)) {
             throw "El valor ingresado debe ser numerico";
